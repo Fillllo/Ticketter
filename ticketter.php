@@ -15,8 +15,8 @@ $_SESSION['username'] = null;
 <body>
     
     <section id="main">
+        <h1>Connexion à Ticketter</h1>
         <form id="connection" action="connection.php" method="POST">
-            <h1>Connexion</h1>
             <input type="text" placeholder="Login" name="username" required>
             <input type="password" placeholder="Mot de passe" name="password" required>
             <input id="submit" type="submit" value="Se connecter">

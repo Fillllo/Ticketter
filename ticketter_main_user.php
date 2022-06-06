@@ -15,24 +15,23 @@ if ($_SESSION['username'] != null) { ?>
 
     <body>
         <section id="header">
-            <span id="outil">Outil de ticket</span>
+            <span id="outil">Ticketer</span>
+            <button onclick="changeView('user');" id="buttonChangeView">Voir mes tickets</button>
             <div>
-
-                <span><?php echo $_SESSION['username']; ?></span>
-                <button onclick="window.location.href ='ticketter.php'">Se déconnecter</button>
+                <span>Bienvenue, <?php echo $_SESSION['username']; ?></span>
+                <button id="deconnexion" onclick="window.location.href ='ticketter.php'">Se déconnecter</button>
 
             </div>
         </section>
         <section>
-            <button onclick="changeView('user');" id="buttonChangeView">Voir mes tickets</button>
             <div id="center">
                 <span>Description de votre problème</span>
                 <input type="text" id="titre" placeholder="Titre">
                 <textarea rows="5" cols="10" placeholder="Décrivez votre problème" id="probleme" maxlength="255"></textarea>
-                <button onclick="pushTicket('user');">Envoyer</button>
+                <button onclick="pushTicket('user');">Envoyer le ticket</button>
             </div>
             <div id="list" style="display: none;">
-                <span>Liste des tickets</span>
+                <span id="titleList">Liste des tickets</span>
             </div>
         </section>
     </body>

@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Roboto", sans-serif;
+	font-family: 'Open Sans', sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	color: #6d8892;
+}
+button, input {
+	font-family: 'Open Sans', sans-serif !important;
 }
 
 #header {
@@ -17,10 +22,21 @@ body {
 	display: flex;
 	right: 3%;
 	position: absolute;
-	flex-direction: column;
 }
 #header div span {
-	margin-bottom: 2%;
+	display: flex;
+	justify-content: center;
+	margin-top: 0.7vh;
+	margin-right: 3vw;
+}
+#deconnexion{
+	transition-duration: 0.4s;
+	background-color: white;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #51656d;
 }
 #header #outil {
 	font-size: 20px;
@@ -63,7 +79,6 @@ body {
 	width: 50%;
 	margin: auto;
 	font-size: 20px;
-	font-family: "Roboto", sans-serif;
 	margin-bottom: 3%;
 	padding: 10px;
 	border: 2px solid #6d8892;
@@ -75,8 +90,7 @@ body {
 	width: 20%;
 	margin: auto;
 	font-size: 20px;
-	font-family: "Roboto", sans-serif;
-
+	padding: 1vw;
 	border: 2px solid #6d8892;
 	color: #6d8892;
 	border-radius: 5px;
@@ -86,17 +100,29 @@ body {
 	transition-duration: 0.4s;
 	background-color: white;
 	color: black;
-	border: 2px solid black;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin-left: 5vw;
+	background-color: #51656d;
 }
 
 #buttonChangeView:hover {
-	background-color: black; /* Green */
-	color: white;
+	background-color: #657d86;
+	cursor: pointer;
 }
 
 #list {
 	display: none;
 	flex-direction: column;
+}
+#titleList{
+	font-size: 30px;
+	font-weight: 700;
+	margin-left: 5vw;
+	margin-top: 2vh;
+	width: 20vw;
+	border-bottom: 2px solid #6d8892;
 }
 .ticket {
 	display: flex;
@@ -104,28 +130,52 @@ body {
 	padding: 10px;
 	border: 2px solid #6d8892;
 	border-radius: 5px;
-	margin: 10px;
-	width: 80%;
+	margin: 2vw;
+	width: 100%;
+}
+.ticket button {
+	border: none;
+	border-radius: 5px;
+	background: none;
+	height: 10vh;
+	max-width: auto;
+	font-size: 15px;
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+button:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
 .etat {
 	display: flex;
-	height: 25px;
-	width: 25px;
+	height: 2vw;
+	width: 2vw;
 	border-radius: 50%;
-
+	justify-content: center;
 	float: right;
+	margin: auto;
+	margin-left: 0;
+	margin-right: 0;
+	flex-shrink: 0;
 }
 .titre {
 	font-weight: 700;
 	margin-left: 3%;
 	width: 10%;
 }
-
+.ticket span {
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
 .probleme {
 	margin-left: 5%;
-	width: 60%;
+	width: 50%;
 	word-wrap: break-word;
 }
-table, th, td {
+.resolution {
+	width: 20%;
+}
+table, tr{
 	border: 1px solid black;
 }

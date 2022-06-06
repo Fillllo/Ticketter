@@ -29,7 +29,7 @@ if ($_SESSION['username'] != null) { ?>
                 <span>Description de votre problème</span>
                 <select id="select">
                     <option value="type">Type</option>
-                    <option value="Problem">Problème</option>
+                    <option value="Problem">Problem</option>
                     <option value="Warn">Warn</option>
                     <option value="Error">Error</option>
                 </select>

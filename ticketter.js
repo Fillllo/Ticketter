@@ -67,7 +67,7 @@ function loadTickets(type) {
 				let div = document.createElement("div");
 				div.classList.add("ticket");
 				div.dataset.id = ticket["id_ticket"];
-				div.style.width = "80%";
+				div.style.width = "auto";
 				div.style.height = "100px";
 				div.style.overflowY = "scroll";
 				let titre = document.createElement("span");
@@ -88,7 +88,6 @@ function loadTickets(type) {
 						etat.style.backgroundColor = "#22ca00";
 						break;
 				}
-				
 				titre.innerHTML = ticket["titre"];
 				probleme.innerHTML = ticket["probleme"];
 				typeTick = document.createElement("span");
@@ -97,6 +96,12 @@ function loadTickets(type) {
 				div.appendChild(etat);
 				div.appendChild(titre);
 				div.appendChild(probleme);
+				if(ticket["resolution"] != 'undefined') {
+					let messageResolution = document.createElement("span")
+					messageResolution.classList.add("resolution")
+					messageResolution.innerHTML = ticket["resolution"]
+					div.appendChild(messageResolution)
+				}
 				div.appendChild(typeTick);
 				
 
@@ -104,6 +109,8 @@ function loadTickets(type) {
 				if (type == "dev" && ticket["etat"] != 2) {
 					let affecter = document.createElement('button');
 					let textResolution = document.createElement("input");
+					textResolution.placeholder = "Message de résolution"
+					textResolution.style.borderRadius = "5px"
 					let resoudre = document.createElement('button');
 					//BASCULEMENT + HISTORIQUE
 					let basculer = document.createElement('button');
@@ -137,6 +144,7 @@ function loadTickets(type) {
 					} else {
 						//sinon, cela veut dire qu'il y est déja affecté et qu'il peut le résoudre où le basculer
 						div.appendChild(textResolution);
+						div.appendChild(resoudre);
 						div.appendChild(historique);
 						historique.innerHTML = "Historique"
 						let count = 0;
@@ -175,19 +183,15 @@ function loadTickets(type) {
 											
 											let td1 = document.createElement('td');
 											td1.innerHTML = histo["id_emetteur"];
-											td1.style.border = "2px solid black";
 											tr.appendChild(td1);
 											let td2 = document.createElement('td');
 											td2.innerHTML = histo['id_recepteur'];
-											td2.style.border = "2px solid black";
 											tr.appendChild(td2);
 											let td3 = document.createElement('td');
 											td3.innerHTML = histo['message']
-											td3.style.border = "2px solid black";
 											tr.appendChild(td3);
 											let td4 = document.createElement('td');
 											td4.innerHTML = histo['date']
-											td4.style.border = "2px solid black";
 											tr.appendChild(td4);
 
 
@@ -215,7 +219,6 @@ function loadTickets(type) {
 							textResolution.style.display = "none";
 							basculer.style.display="none";
 						});
-						div.appendChild(resoudre);
 						div.appendChild(resoudre);
 						basculer.innerHTML = "Basculer";
 						div.appendChild(basculer);
@@ -292,8 +295,9 @@ function loadTickets(type) {
 					});
 				
 				}
-			
-				list.appendChild(div);
+				if( type == 'dev' && ticket["etat"] != 2) {
+					list.appendChild(div);
+				}
 			});
 		},
 		error: function (error) {
