@@ -1,6 +1,8 @@
 function pushTicket(type) {
 	titre = document.getElementById("titre").value;
 	probleme = document.getElementById("probleme").value;
+	document.getElementById("titre").value = ""
+	document.getElementById("probleme").value = ""
 	var typeTicketValue = "";
 	if(type =="dev"){
 		typeTicket = document.getElementById("select").selectedIndex;
@@ -293,11 +295,14 @@ function loadTickets(type) {
 							},
 						});
 					});
-				
 				}
 				if( type == 'dev' && ticket["etat"] != 2) {
 					list.appendChild(div);
+				} else if(type == 'user') {
+					console.log(div)
+
 				}
+				list.appendChild(div);
 			});
 		},
 		error: function (error) {
