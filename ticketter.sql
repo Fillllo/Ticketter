@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 03 juin 2022 à 13:05
--- Version du serveur :  10.4.14-MariaDB
--- Version de PHP : 7.2.33
+-- Généré le : lun. 13 juin 2022 à 21:14
+-- Version du serveur :  10.4.16-MariaDB
+-- Version de PHP : 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,7 +81,8 @@ INSERT INTO `historique_basculement` (`id_basculement`, `id_emetteur`, `id_recep
 (15, 2, 4, 'Tiens je te donne ca', 51, '2021-12-02'),
 (16, 4, 2, '', 52, '2021-12-02'),
 (17, 2, 4, '', 52, '2022-04-15'),
-(18, 2, 5, 'fdfdfsd', 60, '2022-06-01');
+(18, 2, 5, 'fdfdfsd', 60, '2022-06-01'),
+(19, 2, 5, 'J\'ai besoin d\'une meilleure expertise', 65, '2022-06-06');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE `ticket` (
   `id_user` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `probleme` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL DEFAULT 'Problem',
   `dev_affecte` varchar(25) NOT NULL,
   `etat` int(1) NOT NULL DEFAULT 0,
   `resolution` varchar(255) NOT NULL
@@ -105,16 +106,13 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id_ticket`, `id_user`, `titre`, `probleme`, `type`, `dev_affecte`, `etat`, `resolution`) VALUES
-(51, 2, 'Mon PC ne marche plus', 'Mon PC ne s\'allume plus', 'Warn', '4', 1, 'Je ne peux pas résoudre ca'),
-(52, 2, 'Mon PC ne marche plus', 'Mon PC ne s\'allume plus', 'Warn', '4', 1, ''),
-(53, 2, 'Ma voiture est en panne', 'Ma voiture refuse de démarrer', 'Problem', '4', 1, ''),
-(54, 1, 'Mon ordinateur est cassé', 'Mon écran est fissuré', 'Problem', '4', 1, ''),
-(55, 2, 'efzef', 'dsfsdfsf', '', '4', 0, ''),
-(56, 2, 'efzef', 'dsfsdfsf', 'Warn', '1', 0, ''),
-(57, 2, 'Dev1', 'zeffsdfsdfsf', 'Warn', '2', 2, ''),
-(58, 2, 'Dev4', 'hfghghh', 'Warn', '5', 1, 'Voila !'),
-(59, 2, 'Test', 'mon pc ne marche encore plus', '', '2', 2, 'dfsdfsdf'),
-(60, 2, 'Test', 'mon pc ne marche encore plus', '', '5', 1, '');
+(70, 1, 'MaPêche ne fonctionne pas', 'Je n\'arrives pas a accéder à MaPêche', 'Problem', '', 0, ''),
+(71, 1, 'La carte ne s\'affiches pas', 'Je n\'arrives pas a voir la carte de MaPêche', 'Problem', '', 0, ''),
+(72, 1, 'sqddqs', 'qsdqsddqs', 'Problem', '', 0, ''),
+(73, 1, 'sdqdqs', 'sqdqsdqsd', 'Problem', '', 0, ''),
+(74, 1, 'sqdqd', 'qdqsddsq', 'Problem', '', 0, ''),
+(75, 1, 'dsqdqdssd', 'qsdqsdqsd', 'Problem', '', 0, ''),
+(76, 1, 'sqdqsdd', 'qsdqsdqds', 'Problem', '', 0, '');
 
 --
 -- Index pour les tables déchargées
@@ -155,13 +153,13 @@ ALTER TABLE `compte`
 -- AUTO_INCREMENT pour la table `historique_basculement`
 --
 ALTER TABLE `historique_basculement`
-  MODIFY `id_basculement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_basculement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
